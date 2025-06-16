@@ -1,5 +1,4 @@
 "use client";
-import { AuthFormType } from "@/types/AuthFormType";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { formSchema, FormSchemaType } from "../../schema/authSchema";
@@ -11,8 +10,9 @@ import Link from "next/link";
 import CustomFormField from "./FormField";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { AuthFormProps } from "@/types";
 
-const AuthForm = ({ type }: AuthFormType) => {
+const AuthForm = ({ type }: AuthFormProps) => {
   const router = useRouter();
 
   const isSignIn = type === "sign-in";
@@ -28,6 +28,7 @@ const AuthForm = ({ type }: AuthFormType) => {
   });
 
   const onSubmit = (data: FormSchemaType) => {
+    console.log("data : ", data);
     try {
       if (type === "sign-up") {
         toast.success("Account created successfully. Please Sign in");
