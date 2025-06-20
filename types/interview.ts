@@ -8,6 +8,11 @@ export interface Interview {
   userId: string;
   type: string;
   finalized: boolean;
+  coverImage?: string;
+  stats?: {
+    totalQuestions: number;
+    technicalCount: number;
+  };
 }
 
 export interface InterviewCardProps {
